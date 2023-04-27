@@ -263,7 +263,7 @@ void debug_maincpu(uint32_t reg_pc, CLOCK mclk, const char *dis, uint8_t reg_a,
                 break;
             }
         case DEBUG_NORMAL:
-            log_debug(".%04X %03u %03u %10ld  %-22s "
+            log_debug(".%04X %03u %03u %10ld  %-23s "
                       "%02x%02x%02x%02x %02x %02x", (unsigned int)reg_pc,
                       RLINE(mclk), RCYCLE(mclk), (long)mclk, dis,
                       reg_a, reg_x, reg_y, reg_sp, arg1, arg2);

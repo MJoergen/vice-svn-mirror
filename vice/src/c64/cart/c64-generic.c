@@ -339,7 +339,11 @@ uint8_t generic_roml_read(uint16_t addr)
         return export_ram0[addr & 0x1fff];
     }
 
-    return roml_banks[(addr & 0x1fff) + (roml_bank << 13)];
+    uint8_t ret = roml_banks[(addr & 0x1fff) + (roml_bank << 13)];
+    log_debug("generic_roml_read: addr=%04x, virtual_addr=%06x, ret=%02x",
+            addr, (addr & 0x1fff) + (roml_bank << 13), ret);
+
+    return ret;
 }
 
 /* ROML store - mapped to 8000 in ultimax mode */

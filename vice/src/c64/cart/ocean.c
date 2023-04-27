@@ -42,6 +42,7 @@
 #include "types.h"
 #include "util.h"
 #include "crt.h"
+#include "log.h"
 
 /*
     "Ocean" Game Cartridges
@@ -146,8 +147,12 @@ static const export_resource_t export_res = {
 
 uint8_t ocean_romh_read(uint16_t addr)
 {
+    uint8_t ret = roml_banks[(addr & 0x1fff) + (roml_bank << 13)];
     /* 256 kB OCEAN carts may access memory either at $8000 or $a000 */
-    return roml_banks[(addr & 0x1fff) + (roml_bank << 13)];
+    log_debug("ocean_romh_read: addr=%04x, virtual_addr=%06x, ret=%02x",
+            addr, (addr & 0x1fff) + (roml_bank << 13), ret);
+
+    return ret;
 }
 
 void ocean_config_init(void)

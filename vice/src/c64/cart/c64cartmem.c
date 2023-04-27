@@ -467,6 +467,11 @@ void cart_port_config_changed_slotmain(void)
 
 void cart_config_changed_slotmain(uint8_t mode_phi1, uint8_t mode_phi2, unsigned int wflag)
 {
+    log_debug("cart_config_changed_slotmain, mode_phi1=%d, mode_phi2=%d, wflag=%d",
+            mode_phi1, mode_phi2, wflag);
+    log_debug("old GAME = %d,  new GAME = %d",  export.game^1,  (mode_phi2 & 1)^1);
+    log_debug("old EXROM = %d, new EXROM = %d", export.exrom^1, (mode_phi2 >> 1) & 1);
+
 #ifndef USESLOTS
     cart_config_changed(2, mode_phi1, mode_phi2, wflag);
 #else
