@@ -43,6 +43,9 @@
 #define CPU_STR "Main CPU"
 #endif
 
+extern int mem_config;
+extern int roml_bank;
+
 #include "traps.h"
 
 #ifndef C64DTV
@@ -1727,7 +1730,7 @@ static const uint8_t fetch_tab[] = {
                           mon_disassemble_to_string(e_comp_space,
                                                     (uint16_t) reg_pc, op,
                                                     lo, hi, 0, 1, "6502"),
-                          reg_a_read, reg_x, reg_y, reg_sp);
+                          reg_a_read, reg_x, reg_y, reg_sp, mem_config, roml_bank);
         }
         if (debug.perform_break_into_monitor) {
             monitor_startup_trap();

@@ -2277,7 +2277,7 @@ static const uint8_t rewind_fetch_tab[] = {
                           mon_disassemble_to_string(e_comp_space,
                                                     reg_pc, op,
                                                     lo, hi, 0, 1, "6502"),
-                          reg_a_read, reg_x_read, reg_y_read, reg_sp);
+                          reg_a_read, reg_x_read, reg_y_read, reg_sp, 0, 0);
         }
         if (debug.perform_break_into_monitor) {
             monitor_startup_trap();

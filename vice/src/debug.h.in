@@ -85,7 +85,7 @@ int debug_cmdline_options_init(void);
 
 void debug_set_machine_parameter(unsigned int cycles, unsigned int lines);
 void debug_maincpu(uint32_t reg_pc, CLOCK mclk, const char *dis, uint8_t reg_a, uint8_t reg_x,
-                   uint8_t reg_y, uint8_t reg_sp);
+                   uint8_t reg_y, uint8_t reg_sp, uint8_t arg1, uint8_t arg2);
 void debug_main65816cpu(uint32_t reg_pc, CLOCK mclk, const char *dis, uint16_t reg_c,
                         uint16_t reg_x, uint16_t reg_y, uint16_t reg_sp, uint8_t reg_pbr);
 void debug_drive(uint32_t reg_pc, CLOCK mclk, const char *dis, uint8_t reg_a, uint8_t reg_x,

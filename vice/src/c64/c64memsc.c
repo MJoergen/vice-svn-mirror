@@ -113,7 +113,7 @@ static read_func_ptr_t mem_read_tab_watch[0x101];
 static int vbank;
 
 /* Current memory configuration.  */
-static int mem_config;
+int mem_config;
 
 /* Tape sense status: 1 = some button pressed, 0 = no buttons pressed.  */
 static int tape_sense = 0;

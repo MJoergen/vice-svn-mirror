@@ -222,7 +222,7 @@ void debug_set_machine_parameter(unsigned int cycles, unsigned int lines)
 #define RCYCLE(clk) ((unsigned int)((clk) % cycles_per_line))
 
 void debug_maincpu(uint32_t reg_pc, CLOCK mclk, const char *dis, uint8_t reg_a,
-                   uint8_t reg_x, uint8_t reg_y, uint8_t reg_sp)
+                   uint8_t reg_x, uint8_t reg_y, uint8_t reg_sp, uint8_t arg1, uint8_t arg2)
 {
     switch (debug.trace_mode) {
         case DEBUG_SMALL:
@@ -264,9 +264,9 @@ void debug_maincpu(uint32_t reg_pc, CLOCK mclk, const char *dis, uint8_t reg_a,
             }
         case DEBUG_NORMAL:
             log_debug(".%04X %03u %03u %10ld  %-22s "
-                      "%02x%02x%02x%02x", (unsigned int)reg_pc,
+                      "%02x%02x%02x%02x %02x %02x", (unsigned int)reg_pc,
                       RLINE(mclk), RCYCLE(mclk), (long)mclk, dis,
-                      reg_a, reg_x, reg_y, reg_sp);
+                      reg_a, reg_x, reg_y, reg_sp, arg1, arg2);
             break;
         default:
             log_debug("Unknown debug format.");

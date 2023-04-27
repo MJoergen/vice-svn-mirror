@@ -35,9 +35,7 @@
 #include "archdep.h"
 #include "autostart.h"
 
-#ifdef FEATURE_CPUMEMHISTORY
 #include "c64pla.h"
-#endif
 
 #include "debug.h"
 #include "interrupt.h"

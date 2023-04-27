@@ -49,6 +49,9 @@
 #define EXIT_FAILURE 1
 #endif
 
+int roml_bank = 0;
+int mem_config = 0;
+
 /* MACHINE_STUFF should define/undef
 
  - NEED_REG_PC
