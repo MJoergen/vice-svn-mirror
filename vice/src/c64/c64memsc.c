@@ -66,6 +66,7 @@
 #include "vicii-mem.h"
 #include "vicii-phi1.h"
 #include "vicii.h"
+#include "log.h"
 
 /* Machine class (moved from c64.c to distinguish between x64 and x64sc) */
 int machine_class = VICE_MACHINE_C64SC;
@@ -402,6 +403,10 @@ uint8_t ram_read(uint16_t addr)
 
 void ram_store(uint16_t addr, uint8_t value)
 {
+    if (addr >= 0x0300 && addr <= 0x03ff)
+    {
+        log_debug("Writing %02x to %04x", value, addr);
+    }
     mem_ram[addr] = value;
 }
 

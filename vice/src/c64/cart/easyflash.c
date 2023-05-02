@@ -237,6 +237,7 @@ static uint8_t easyflash_io2_read(uint16_t addr)
 
 static void easyflash_io2_store(uint16_t addr, uint8_t value)
 {
+    log_debug("Writing %02x to %04x", value, addr);
     easyflash_ram[addr & 0xff] = value;
 }
 
